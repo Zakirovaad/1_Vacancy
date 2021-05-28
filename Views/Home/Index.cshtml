@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Vacancy.Models.VacancyList>
+@{
+    ViewBag.Title = "Все вакансии";
+}
+
+<style>
+    .inp {
+        display: flex;
+    }
+</style>
+
+<!--<form method="get">-->
+<div class="inp">
+    <form class="inp" asp-controller="Home" asp-action="Index">
+        <input name="search_text" placeholder="Введите должность, организацию или тип занятости" size="130" class="form-control" />
+        <input type="image" src="~/images/search_img.png" class="btn btn-default" width="50" height="40" />
+    </form>
+    <form class="inp" asp-controller="Home" asp-action="Index">
+        <input name="search_null_text" type="image" src="~/images/close_img.png" class="btn btn-default" width="50" height="40" />
+    </form>
+</div>
+<!---->
+<a asp-action="Create">Добавить вакансию</a>
+
+<table class="table">
+    <tr>
+        <th>Заголовок</th>
+        <th>Оклад</th>
+        <th>Организация</th>
+        <th>Контактное лицо</th>
+        <th>Телефон</th>
+        <th>Тип занятости</th>
+        <th>Описание вакансии</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><a asp-action="Details" target="_blank" asp-controller="Home" asp-route-id="@item.id">@item.name</a></td>
+            <td>@item.salary</td>
+            <td>@item.organization</td>
+            <td>@item.contact_person</td>
+            <td>@item.phone_number</td>
+            <td>@item.empl_type</td>
+            <td>@item.description</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,28 @@
+﻿@model Vacancy.Models.VacancyList
+@{
+    ViewBag.Title = Model.name;
+}
+<h2> @Model.name</h2>
+<div>
+    <dl class="dl-horizontal">
+
+        <dt>Оклад</dt>
+        <dd>@Model.salary</dd>
+
+        <dt>Организация</dt>
+        <dd>@Model.organization</dd>
+
+        <dt>Контактное лицо</dt>
+        <dd>@Model.contact_person</dd>
+
+        <dt>Телефон</dt>
+        <dd>@Model.phone_number</dd>
+
+        <dt>Тип занятости</dt>
+        <dd>@Model.empl_type</dd>
+
+        <dt>Описание вакансии</dt>
+        <dd>@Model.description</dd>
+
+    </dl>
+</div>
